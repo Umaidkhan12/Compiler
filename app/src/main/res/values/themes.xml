@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme using Material3 DayNight support -->
+    <style name="Base.Theme.Compiler" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- The following color attributes will resolve to light or dark mode values
+             based on the device setting and your colors.xml / colors-night.xml files -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorOnPrimary">@color/colorOnPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
+        <item name="colorOnSecondary">@color/colorOnSecondary</item>
+        <item name="android:colorBackground">@color/colorBackground</item>
+        <item name="colorOnBackground">@color/colorOnBackground</item>
+        <item name="colorSurface">@color/colorSurface</item>
+        <item name="colorOnSurface">@color/colorOnSurface</item>
+    </style>
+
+    <!-- Application theme -->
+    <style name="Theme.Compiler" parent="Base.Theme.Compiler" />
+</resources>
