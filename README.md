@@ -19,6 +19,12 @@ A modern multi-tab code editor and compiler app for Android built with Kotlin, M
 - **JDoodle API Credentials:** Sign up at [JDoodle](https://www.jdoodle.com/compiler-api) and obtain your Client ID and Client Secret.
 - **Internet Connection:** Required for remote code compilation.
 
+## Download APK
+
+Click below to download the latest version of the app:
+
+[![Download APK](https://img.shields.io/badge/Download-APK-blue?style=for-the-badge&logo=android)](APK/app-debug.apk)
+
 ## Setup
 
 1. **Clone the Repository:**
