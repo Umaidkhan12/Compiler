@@ -1,6 +1,7 @@
 package com.example.compiler
 
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
@@ -64,6 +65,9 @@ class MainActivity : AppCompatActivity() {
             put("clientSecret", BuildConfig.JDOODLE_CLIENT_SECRET)
         }
 
+        Log.d("Secret", BuildConfig.JDOODLE_CLIENT_ID)
+        Log.d("Secret", BuildConfig.JDOODLE_CLIENT_SECRET)
+
         val jsonRequest = JsonObjectRequest(
             Request.Method.POST, url, requestBody,
             { response ->
@@ -71,7 +75,7 @@ class MainActivity : AppCompatActivity() {
                 callback(output)
             },
             { error ->
-                callback("Error: ${error.message}")
+                callback("Error: ${error.networkResponse?.statusCode} - ${String(error.networkResponse?.data ?: ByteArray(0))}")
             }
         )
         Volley.newRequestQueue(this).add(jsonRequest)

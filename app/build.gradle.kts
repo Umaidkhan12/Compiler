@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
@@ -7,9 +10,6 @@ android {
     namespace = "com.example.compiler"
     compileSdk = 35
 
-    val clientId = System.getenv("JDOODLE_CLIENT_ID") ?: "\"defaultClientId"
-    val clientSecret = System.getenv("JDOODLE_CLIENT_SECRET") ?: "\"defaultClientSecret"
-
     defaultConfig {
         applicationId = "com.example.compiler"
         minSdk = 24
@@ -17,8 +17,18 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        buildConfigField("String", "JDOODLE_CLIENT_ID", "${clientId}\"")
-        buildConfigField("String", "JDOODLE_CLIENT_SECRET", "${clientSecret}\"")
+        // Load properties
+        val properties = Properties()
+        val localPropertiesFile = rootProject.file("gradle.properties")
+        if (localPropertiesFile.exists()) {
+            properties.load(FileInputStream(localPropertiesFile))
+        }
+
+        val clientId = properties.getProperty("JDOODLE_CLIENT_ID", "")
+        val clientSecret = properties.getProperty("JDOODLE_CLIENT_SECRET", "")
+
+        buildConfigField("String", "JDOODLE_CLIENT_ID", "\"${clientId}\"")
+        buildConfigField("String", "JDOODLE_CLIENT_SECRET", "\"${clientSecret}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
