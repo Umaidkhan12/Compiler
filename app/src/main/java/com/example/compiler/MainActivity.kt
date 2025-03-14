@@ -1,7 +1,6 @@
 package com.example.compiler
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.toolbox.JsonObjectRequest
@@ -64,9 +63,6 @@ class MainActivity : AppCompatActivity() {
             put("clientId", BuildConfig.JDOODLE_CLIENT_ID)
             put("clientSecret", BuildConfig.JDOODLE_CLIENT_SECRET)
         }
-
-        Log.d("Secret", BuildConfig.JDOODLE_CLIENT_ID)
-        Log.d("Secret", BuildConfig.JDOODLE_CLIENT_SECRET)
 
         val jsonRequest = JsonObjectRequest(
             Request.Method.POST, url, requestBody,

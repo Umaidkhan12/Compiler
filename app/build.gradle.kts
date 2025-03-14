@@ -19,7 +19,7 @@ android {
 
         // Load properties
         val properties = Properties()
-        val localPropertiesFile = rootProject.file("gradle.properties")
+        val localPropertiesFile = rootProject.file("local.properties")
         if (localPropertiesFile.exists()) {
             properties.load(FileInputStream(localPropertiesFile))
         }
