@@ -7,6 +7,9 @@ android {
     namespace = "com.example.compiler"
     compileSdk = 35
 
+    val clientId = System.getenv("JDOODLE_CLIENT_ID") ?: "\"defaultClientId"
+    val clientSecret = System.getenv("JDOODLE_CLIENT_SECRET") ?: "\"defaultClientSecret"
+
     defaultConfig {
         applicationId = "com.example.compiler"
         minSdk = 24
@@ -14,8 +17,8 @@ android {
         versionCode = 1
         versionName = "1.0"
 
-        buildConfigField("String", "JDOODLE_CLIENT_ID", "\"c9e1ee216602c1464fa33d7450a1dd19\"")
-        buildConfigField("String", "JDOODLE_CLIENT_SECRET", "\"21d96973690f526a5681d67b5b259852cf97fd9f91ce000b261f9f2621bbc6b3\"")
+        buildConfigField("String", "JDOODLE_CLIENT_ID", "${clientId}\"")
+        buildConfigField("String", "JDOODLE_CLIENT_SECRET", "${clientSecret}\"")
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
